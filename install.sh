@@ -23,6 +23,9 @@ phase_packages() {
   local pkgs
   mapfile -t pkgs < <(grep -Ev '^[[:space:]]*(#|$)' "$DOTFILES/packages/pacman.txt")
   sudo pacman -Syu --needed "${pkgs[@]}"
+  # A package that was already present as another package's dependency stays
+  # marked that way, and `pacman -Rns` (the cleanup phase) would take it along.
+  sudo pacman -D --asexplicit "${pkgs[@]}" >/dev/null
 }
 
 # --- link: symlink configs into place with stow ----------------------------

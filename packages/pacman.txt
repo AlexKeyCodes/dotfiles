@@ -1,0 +1,79 @@
+# One package per line. Everything here is in the official Arch repos.
+# Add a line, then run: ./install.sh packages
+
+# Desktop
+hyprland
+hyprlock
+hypridle
+hyprpolkitagent
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+gsettings-desktop-schemas
+qt6-wayland
+waybar
+fuzzel
+mako
+swaybg
+
+# Audio, brightness, media keys, Bluetooth
+pipewire
+pipewire-pulse
+wireplumber
+brightnessctl
+playerctl
+bluez
+bluez-utils
+
+# Desktop tools
+grim
+slurp
+wl-clipboard
+cliphist
+libnotify
+jq
+pulsemixer
+bluetui
+impala
+
+# Terminal and shell
+ghostty
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-completions
+starship
+stow
+fzf
+zoxide
+fd
+ripgrep
+btop
+
+# File manager and its preview helpers
+yazi
+7zip
+poppler
+imagemagick
+
+# Editor
+neovim
+tree-sitter-cli
+unzip
+
+# Development
+git
+openssh
+mise
+base-devel
+libyaml
+
+# Fonts
+ttf-meslo-nerd
+noto-fonts
+noto-fonts-emoji
+
+# Apps
+firefox
+mpv
+obs-studio
+transmission-gtk

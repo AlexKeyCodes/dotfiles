@@ -1,0 +1,32 @@
+# Font
+font-family = "MesloLGS Nerd Font Mono"
+font-size = 12
+
+# Colours: ~/.config/ghostty/themes/current is written by theme-set.
+theme = current
+background-opacity = 0.96
+background-blur = true
+
+# Window
+window-padding-x = 8
+window-padding-y = 8
+window-decoration = none
+
+# One process per window, so `term` can find the focused terminal's directory.
+gtk-single-instance = false
+
+# Shell
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+
+# Behaviour
+confirm-close-surface = false
+copy-on-select = true
+
+# No split bindings on purpose: Hyprland tiles terminals (SUPER + Return),
+# which leaves ctrl+h/j/k/l free for Neovim and the shell.
+keybind = shift+enter=text:\n

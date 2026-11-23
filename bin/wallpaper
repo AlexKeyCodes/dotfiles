@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Show the current theme's wallpaper, if it has one. Without one, Hyprland
+# fills the background with the theme's background colour.
+image=${XDG_CONFIG_HOME:-$HOME/.config}/theme/current/wallpaper
+[[ -e $image ]] || exit 0
+exec swaybg -i "$image" -m fill

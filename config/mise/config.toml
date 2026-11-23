@@ -1,0 +1,7 @@
+# Global tool versions. A project's .ruby-version / .nvmrc / mise.toml wins.
+[tools]
+node = "lts"
+ruby = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby", "node"]

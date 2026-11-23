@@ -1,0 +1,35 @@
+// Bar layout. Colours and styling live in templates/waybar.css.
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio", "battery"],
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip": false
+  },
+
+  "network": {
+    "format-wifi": "{essid}",
+    "format-ethernet": "wired",
+    "format-disconnected": "offline",
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": "vol {volume}%",
+    "format-muted": "muted",
+    "tooltip": false
+  },
+
+  "battery": {
+    "format": "bat {capacity}%",
+    "format-charging": "chg {capacity}%",
+    "states": { "warning": 25, "critical": 10 },
+    "tooltip": false
+  }
+}

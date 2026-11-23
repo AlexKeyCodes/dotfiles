@@ -1,0 +1,76 @@
+# Rendered by theme-set from templates/starship.toml. Edit the template, not the output.
+# https://github.com/starship/starship/discussions/1107 - Gaurav-Gosain
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[╭](fg:current_line)\
+$time\
+$directory\
+$git_branch\
+$git_status\
+$line_break\
+$character\
+"""
+
+palette = 'theme'
+add_newline = true
+
+[palettes.theme]
+foreground = '#{{prompt_fg}}'
+background = '#{{bg}}'
+current_line = '#{{prompt_box}}'
+primary = '#{{surface}}'
+box = '#{{prompt_box}}'
+blue = '#{{blue}}'
+cyan = '#{{cyan}}'
+green = '#{{green}}'
+orange = '#{{orange}}'
+pink = '#{{pink}}'
+purple = '#{{purple}}'
+red = '#{{red}}'
+yellow = '#{{yellow}}'
+status = '#{{red}}'
+
+[directory]
+format = '[─](fg:current_line)[](fg:pink)[󰷏](fg:primary bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)'
+home_symbol = "~/"
+truncation_symbol = '../'
+truncation_length = 2
+read_only = '󱧵 '
+read_only_style = ''
+
+[git_branch]
+format = '[─](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $branch](fg:foreground bg:box)'
+symbol = ''
+
+[git_status]
+format = '[$all_status](fg:green bg:box)[](fg:box)'
+conflicted = ' ='
+up_to_date = ''
+untracked = ' ?${count}'
+stashed = ' $'
+modified = ' !${count}'
+staged = ' +'
+renamed = ' »'
+deleted = ' ✘'
+ahead = ' ⇡${count}'
+diverged = ' ⇕⇡${ahead_count}⇣${behind_count}'
+behind = ' ⇣${count}'
+
+[fill]
+symbol = '─'
+style = 'fg:current_line'
+
+[time]
+format = '[─](fg:current_line)[](fg:purple)[󰦖](fg:primary bg:purple)[](fg:purple bg:box)[ $time](fg:foreground bg:box)[](fg:box)'
+time_format = '%H:%M'
+disabled = false
+
+[character]
+format = """
+[╰─](fg:current_line) """
+success_symbol = '[](fg:bold white)'
+error_symbol = '[×](fg:bold red)'
+
+[profiles]
+transient = """$character"""

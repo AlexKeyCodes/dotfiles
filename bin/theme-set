@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# Switch the theme for everything at once.
+#
+#   theme-set            pick a theme from a menu
+#   theme-set NAME       switch to themes/NAME
+#   theme-set --reload   re-render the current theme (after editing a template)
+#
+# Each file in templates/ is rendered with the theme's colours into
+# ~/.config/theme/current/, then the running apps are told to reload.
+set -euo pipefail
+
+repo=$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")")
+config=${XDG_CONFIG_HOME:-$HOME/.config}
+out=$config/theme/current
+
+name=${1:-}
+case $name in
+  --reload) name=$(cat "$out/name" 2>/dev/null || echo catppuccin) ;;
+  "")       name=$(ls "$repo/themes" | fuzzel --dmenu --prompt "Theme: ") || exit 0 ;;
+esac
+
+theme=$repo/themes/$name/theme.conf
+if [[ ! -f $theme ]]; then
+  echo "No theme '$name'. Available: $(ls "$repo/themes" | xargs)" >&2
+  exit 1
+fi
+
+# Read key=value pairs; every {{key}} in a template becomes its value.
+declare -A value
+sed_args=()
+while IFS='=' read -r key val || [[ -n $key ]]; do
+  [[ $key =~ ^[a-z_]+$ ]] || continue
+  value[$key]=$val
+  sed_args+=(-e "s|{{$key}}|$val|g")
+done < "$theme"
+
+mkdir -p "$out"
+for template in "$repo"/templates/*; do
+  sed "${sed_args[@]}" "$template" > "$out/$(basename "$template")"
+done
+echo "$name" > "$out/name"
+
+if grep -l '{{[a-z_]*}}' "$out"/* 2>/dev/null; then
+  echo "warning: the files above use a colour that $theme does not define" >&2
+fi
+
+# Optional wallpaper: themes/NAME/wallpaper.jpg (or .png, ...).
+rm -f "$out/wallpaper"
+for image in "$repo/themes/$name"/wallpaper.*; do
+  if [[ -e $image ]]; then
+    ln -s "$image" "$out/wallpaper"
+    break
+  fi
+done
+
+# These apps cannot include a second file, so their whole config is a template.
+link() {
+  local src=$out/$1 dst=$config/$2
+  mkdir -p "$(dirname "$dst")"
+  if [[ -e $dst && ! -L $dst ]]; then
+    mv "$dst" "$dst.bak"
+    echo "moved existing $dst to $dst.bak"
+  fi
+  ln -sfn "$src" "$dst"
+}
+link ghostty       ghostty/themes/current
+link waybar.css    waybar/style.css
+link mako          mako/config
+link fuzzel.ini    fuzzel/fuzzel.ini
+link hyprlock.conf hypr/hyprlock.conf
+link starship.toml starship.toml
+
+# Reload whatever is running. Nothing here is fatal: outside a Hyprland
+# session (first install from a TTY, say) there is simply nothing to reload.
+quiet() { "$@" >/dev/null 2>&1 || true; }
+
+quiet gsettings set org.gnome.desktop.interface color-scheme "prefer-${value[mode]:-dark}"
+
+if [[ -n ${HYPRLAND_INSTANCE_SIGNATURE:-} ]]; then
+  quiet hyprctl reload
+  quiet pkill -USR2 -x waybar
+  quiet makoctl reload
+  quiet pkill -USR2 -x ghostty
+  quiet pkill -x swaybg
+  quiet hyprctl dispatch 'hl.dsp.exec_cmd("wallpaper")'
+fi
+
+# Every running Neovim listens on a socket; tell each one to switch.
+for socket in "${XDG_RUNTIME_DIR:-/run/user/$UID}"/nvim.*.0; do
+  [[ -S $socket ]] || continue
+  quiet timeout 2 nvim --server "$socket" --remote-send "<Cmd>colorscheme ${value[nvim]}<CR>"
+done
+
+if [[ -n ${WAYLAND_DISPLAY:-} ]]; then
+  quiet notify-send "Theme" "${value[name]:-$name}"
+fi
+echo "Theme: ${value[name]:-$name}"

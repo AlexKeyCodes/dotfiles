@@ -1,0 +1,14 @@
+# Rendered by theme-set from templates/mako. Edit the template, not the output.
+font=MesloLGS Nerd Font 11
+anchor=top-right
+padding=12
+border-size=2
+border-radius=8
+default-timeout=5000
+background-color=#{{bg}}
+text-color=#{{fg}}
+border-color=#{{accent}}
+
+[urgency=high]
+border-color=#{{red}}
+default-timeout=0

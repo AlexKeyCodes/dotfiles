@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Searchable list of every keybinding. The list is written by
+# ~/.config/hypr/binds.lua each time Hyprland loads its config.
+list=${XDG_CACHE_HOME:-$HOME/.cache}/keybinds.txt
+[[ -f $list ]] || { notify-send "Keys" "No keybinding list yet; reload Hyprland."; exit 1; }
+fuzzel --dmenu --prompt "Keys: " --width 64 --lines 20 < "$list" >/dev/null

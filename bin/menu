@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# System menu: the things you do rarely enough not to need their own key.
+tui() { exec ghostty --class=tui.float -e "$@"; }
+
+choice=$(printf '%s\n' \
+  "Lock" "Suspend" "Log out" "Reboot" "Shut down" \
+  "Theme" "Wi-Fi" "Bluetooth" "Audio" |
+  fuzzel --dmenu --prompt "System: ") || exit 0
+
+case $choice in
+  "Lock")      loginctl lock-session ;;
+  "Suspend")   systemctl suspend ;;
+  "Log out")   hyprctl dispatch 'hl.dsp.exit()' ;;
+  "Reboot")    systemctl reboot ;;
+  "Shut down") systemctl poweroff ;;
+  "Theme")     exec theme-set ;;
+  "Bluetooth") tui bluetui ;;
+  "Audio")     tui pulsemixer ;;
+  "Wi-Fi")
+    if systemctl is-active --quiet NetworkManager; then
+      tui nmtui
+    elif systemctl is-active --quiet iwd; then
+      tui impala
+    else
+      notify-send "Wi-Fi" "Neither NetworkManager nor iwd is running."
+    fi
+    ;;
+esac

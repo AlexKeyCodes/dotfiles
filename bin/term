@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Open a terminal in the focused terminal's working directory.
+# Extra arguments go straight to ghostty:  term -e yazi
+dir=$HOME
+
+window=$(hyprctl activewindow -j 2>/dev/null)
+pid=$(jq -r 'select(.class // "" | test("ghostty")) | .pid // empty' <<<"$window" 2>/dev/null)
+
+if [[ -n $pid ]]; then
+  # The shell is a child of the ghostty process that owns the window.
+  for child in $(pgrep -P "$pid"); do
+    cwd=$(readlink "/proc/$child/cwd" 2>/dev/null) || continue
+    [[ -d $cwd ]] && dir=$cwd
+  done
+fi
+
+exec ghostty --working-directory="$dir" "$@"

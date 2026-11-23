@@ -92,9 +92,8 @@ phase_services() {
 phase_login() {
   say "Login screen"
   if [[ -f $AUTOLOGIN ]]; then note "auto-login already set up"; return 0; fi
-  note "This replaces the graphical login screen with auto-login on tty1."
+  note "Replacing the graphical login screen with auto-login on tty1."
   note "Hyprland starts on its own and hyprlock asks for your password."
-  ask "Set that up?" || return 0
 
   sudo mkdir -p "$(dirname "$AUTOLOGIN")"
   sudo tee "$AUTOLOGIN" >/dev/null <<EOF

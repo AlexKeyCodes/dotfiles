@@ -18,8 +18,7 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-Read the script first; it is short. It asks before anything that is hard to
-undo, and it is safe to run again at any time.
+Read the script first; it is short. It is safe to run again at any time.
 
 Then reboot.
 
@@ -36,7 +35,7 @@ want: `./install.sh packages link`.
 | `cleanup` | Offers to remove the archinstall defaults this setup replaces (kitty, dolphin, wofi, dunst) |
 | `shell` | Makes zsh the login shell |
 | `services` | Enables Bluetooth |
-| `login` | Offers to replace the graphical login screen with auto-login (see [Login](#login)) |
+| `login` | Replaces the graphical login screen with auto-login and hyprlock (see [Login](#login)) |
 | `git` | Asks for your Git name and email, creates an SSH key if there is none, and switches this repo's remote to SSH |
 | `dev` | Installs Ruby and Node through mise, then Claude Code. Ruby compiles from source, so this takes several minutes |
 

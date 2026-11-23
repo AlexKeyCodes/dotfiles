@@ -32,7 +32,7 @@ want: `./install.sh packages link`.
 | `packages` | Updates the system and installs everything in `packages/pacman.txt` |
 | `link` | Symlinks the configs into place with stow. Existing files are moved to `~/.dotfiles-backup/<date>/` first |
 | `theme` | Renders the current theme (Catppuccin on the first run) |
-| `cleanup` | Offers to remove the archinstall defaults this setup replaces (kitty, dolphin, wofi, dunst) |
+| `cleanup` | Offers to remove the archinstall defaults this setup replaces (kitty, dolphin, wofi, dunst, polkit-kde-agent). Skips kitty while you are running the script inside it |
 | `shell` | Makes zsh the login shell |
 | `services` | Enables Bluetooth |
 | `login` | Replaces the graphical login screen with auto-login and hyprlock (see [Login](#login)) |

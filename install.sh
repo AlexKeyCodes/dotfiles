@@ -63,6 +63,12 @@ phase_cleanup() {
   say "Checking for replaced default packages"
   local found=() pkg
   for pkg in kitty dolphin wofi dunst polkit-kde-agent; do
+    # Removing kitty also removes its terminfo, which breaks the kitty window
+    # this script is running in.
+    if [[ $pkg == kitty && ${TERM:-} == xterm-kitty ]]; then
+      note "skipping kitty: you are using it now. Run ./install.sh cleanup from ghostty later."
+      continue
+    fi
     if pacman -Qq "$pkg" &>/dev/null; then found+=("$pkg"); fi
   done
   if (( ${#found[@]} == 0 )); then note "nothing to remove"; return 0; fi

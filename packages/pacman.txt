@@ -50,6 +50,7 @@ zoxide
 fd
 ripgrep
 btop
+fastfetch
 
 # File manager and its preview helpers
 yazi

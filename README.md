@@ -62,6 +62,7 @@ want: `./install.sh packages link`.
 | Shell and prompt | zsh, starship |
 | Editor | Neovim (LazyVim) |
 | Git | lazygit |
+| System info | fastfetch |
 | Files | yazi |
 | Images, PDFs | imv, zathura |
 | Screenshots | grim, slurp |
@@ -110,7 +111,7 @@ and tells the running apps to reload.
 | zathura | `zathurarc` | Next time it opens |
 | Neovim | `nvim` | Every running instance switches straight away |
 
-Programs that run in the terminal (btop, yazi, fzf, zsh suggestions) use the
+Programs that run in the terminal (btop, fastfetch, yazi, fzf, zsh suggestions) use the
 terminal's colours, so they follow along without any config. GTK apps and
 Firefox follow the theme's light or dark `mode`.
 

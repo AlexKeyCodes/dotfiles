@@ -4,8 +4,6 @@ font-size = 12
 
 # Colours: ~/.config/ghostty/themes/current is written by theme-set.
 theme = current
-background-opacity = 0.96
-background-blur = true
 
 # Window
 window-padding-x = 8

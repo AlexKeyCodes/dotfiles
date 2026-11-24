@@ -73,6 +73,11 @@ hl.config({
     },
 })
 
+-- Switching workspaces fades instead of sliding. Speed is in tenths of a
+-- second. Other styles: "slide", "slidevert", "slidefade 20%"; or set
+-- enabled = false for an instant switch.
+hl.animation({ leaf = "workspaces", enabled = true, speed = 2.5, bezier = "default", style = "fade" })
+
 ---------------
 ---- INPUT ----
 ---------------

@@ -74,6 +74,9 @@ git
 lazygit
 openssh
 mise
+docker
+docker-compose
+docker-buildx
 base-devel
 libyaml
 

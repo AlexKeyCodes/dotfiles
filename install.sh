@@ -101,6 +101,9 @@ phase_services() {
   # It cannot load its modules if the kernel was upgraded since the last boot.
   sudo systemctl enable ufw.service
   sudo ufw enable || note "ufw did not start: reboot, then run ./install.sh services"
+
+  # Docker starts the first time something uses it, not at boot.
+  sudo systemctl enable --now docker.socket
 }
 
 # --- login: auto-login on tty1; hyprlock is then the password prompt -------

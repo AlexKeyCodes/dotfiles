@@ -34,7 +34,7 @@ want: `./install.sh packages link`.
 | `theme` | Renders the current theme (Catppuccin on the first run) |
 | `cleanup` | Offers to remove the archinstall defaults this setup replaces (kitty, dolphin, wofi, dunst, polkit-kde-agent). Skips kitty while you are running the script inside it |
 | `shell` | Makes zsh the login shell |
-| `services` | Enables Bluetooth, the firewall and the weekly package cache cleanup |
+| `services` | Enables Bluetooth, the firewall, the weekly package cache cleanup and Docker (started on first use) |
 | `login` | Replaces the graphical login screen with auto-login and hyprlock (see [Login](#login)) |
 | `git` | Asks for your Git name and email, creates an SSH key if there is none, and switches this repo's remote to SSH |
 | `dev` | Installs Ruby and Node through mise, then Claude Code. Ruby compiles from source, so this takes several minutes |
@@ -69,9 +69,14 @@ want: `./install.sh packages link`.
 | Clipboard history | cliphist |
 | Wi-Fi, Bluetooth, audio | nmtui or impala, bluetui, pulsemixer |
 | Ruby and Node versions | mise |
+| Containers | Docker, with compose and buildx |
 | Apps | Firefox, mpv, OBS, Transmission |
 
-Not included on purpose: databases and Docker. Install them when a project needs them.
+Not included on purpose: databases. Run them in containers when a project needs them.
+
+Docker commands need `sudo`: being in the `docker` group amounts to root without
+a password. Published ports also bypass ufw, so bind them to localhost in a
+project's compose file, such as `"127.0.0.1:5432:5432"`.
 
 ## Keybindings
 

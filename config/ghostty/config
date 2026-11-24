@@ -24,6 +24,8 @@ cursor-style-blink = true
 # Behaviour
 confirm-close-surface = false
 copy-on-select = true
+# Touchpad (precision) and mouse wheel (discrete) scroll speed. Defaults: 1 and 3.
+mouse-scroll-multiplier = precision:0.3,discrete:3
 
 # No split bindings on purpose: Hyprland tiles terminals (SUPER + Return),
 # which leaves ctrl+h/j/k/l free for Neovim and the shell.

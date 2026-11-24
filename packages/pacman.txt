@@ -74,6 +74,7 @@ noto-fonts-emoji
 
 # Apps
 firefox
+imv
 mpv
 obs-studio
 transmission-gtk

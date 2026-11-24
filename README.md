@@ -59,6 +59,7 @@ want: `./install.sh packages link`.
 | Shell and prompt | zsh, starship |
 | Editor | Neovim (LazyVim) |
 | Files | yazi |
+| Images | imv |
 | Screenshots | grim, slurp |
 | Clipboard history | cliphist |
 | Wi-Fi, Bluetooth, audio | nmtui or impala, bluetui, pulsemixer |
@@ -126,7 +127,7 @@ then run `theme-set --reload`.
 ```
 install.sh        the one script
 packages/         pacman.txt: every package, one per line
-config/           linked into ~/.config   (hypr, waybar, ghostty, nvim, mise)
+config/           linked into ~/.config   (hypr, waybar, ghostty, nvim, yazi, mise)
 home/             linked into ~           (.zshrc, .zshenv, .zprofile, .aliases)
 bin/              linked into ~/.local/bin (theme-set, term, menu, keys, screenshot, wallpaper)
 templates/        per-app files with {{colour}} placeholders
@@ -144,6 +145,7 @@ themes/           one folder per theme
 | Check the Hyprland config for mistakes | `Hyprland --verify-config` |
 | Change the Ruby or Node version | Edit `config/mise/config.toml`, run `mise install` |
 | Change the terminal font size | `font-size` in `config/ghostty/config` |
+| Change which app opens a file type | Edit `config/hyprland-mimeapps.list` |
 
 ### Machine-only settings
 

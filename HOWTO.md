@@ -79,4 +79,5 @@ Everything a menu bar would do is behind `SUPER + Escape`.
 | Move a window to another workspace | `SUPER + SHIFT + <number>` |
 | Open another terminal | `SUPER + Return`. It starts in the focused terminal's directory |
 | Close a window | `SUPER + Q` |
+| View an image | `Enter` on it in yazi (`SUPER + E`). In the viewer, left and right flip through the folder, up and down zoom, `F` goes fullscreen, `Q` quits |
 | Find a key I forgot | `SUPER + /` |

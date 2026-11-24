@@ -69,47 +69,12 @@ Not included on purpose: databases and Docker. Install them when a project needs
 
 ## Keybindings
 
-`SUPER` belongs to the window manager. The modifier tells you what kind of
-action it is:
+`SUPER` drives everything: `SUPER + Return` opens a terminal, `SUPER + Space`
+the app launcher, `SUPER + Escape` the system menu (Wi-Fi, Bluetooth, audio,
+power) and `SUPER + /` a searchable list of every binding.
 
-- `SUPER + key` goes somewhere or opens something
-- `SUPER + SHIFT + key` takes the window with you
-- `SUPER + CTRL + key` resizes
-
-| Group | Keys | Action |
-|---|---|---|
-| Focus | `SUPER + H / J / K / L` | Focus the window left / down / up / right |
-| Move | `SUPER + SHIFT + H / J / K / L` | Move the window |
-| Resize | `SUPER + CTRL + H / J / K / L` | Resize the window |
-| Workspace | `SUPER + 1–9` | Go to a workspace |
-| Workspace | `SUPER + SHIFT + 1–9` | Send the window to a workspace |
-| Window | `SUPER + Q` | Close |
-| Window | `SUPER + F` | Fullscreen |
-| Window | `SUPER + T` | Toggle floating |
-| Apps | `SUPER + Return` | Terminal, opened in the focused terminal's directory |
-| Apps | `SUPER + Space` | App launcher |
-| Apps | `SUPER + B` | Browser |
-| Apps | `SUPER + E` | Files (yazi) |
-| Apps | `SUPER + N` | Neovim |
-| Tools | `SUPER + V` | Clipboard history |
-| Tools | `SUPER + S` | Screenshot a region |
-| Tools | `SUPER + SHIFT + S` | Screenshot the whole screen |
-| System | `SUPER + Escape` | System menu: lock, suspend, log out, reboot, shut down, theme, Wi-Fi, Bluetooth, audio |
-| System | `SUPER + /` | Searchable list of every keybinding |
-
-Also:
-
-- Caps Lock is Escape.
-- Volume, brightness and media keys work, including on the lock screen.
-- Three-finger swipe moves between workspaces.
-- Screenshots are copied to the clipboard and saved in `~/Pictures/Screenshots`.
-
-There are no terminal splits. `SUPER + Return` opens another terminal and
-Hyprland tiles it, so one set of keys moves between everything. That leaves
-`ctrl + h/j/k/l` for Neovim's own windows.
-
-To change a binding, edit `config/hypr/binds.lua`. Hyprland reloads on save and
-the `SUPER + /` list updates itself.
+The full list, the laptop keys and everyday how-tos (connecting to Wi-Fi,
+changing volume, using workspaces) are in [HOWTO.md](HOWTO.md).
 
 ## Themes
 

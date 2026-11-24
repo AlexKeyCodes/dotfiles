@@ -1,7 +1,7 @@
 /* Rendered by theme-set from templates/waybar.css. Edit the template, not the output. */
 
 * {
-    font-family: "MesloLGS Nerd Font", monospace;
+    font-family: "MesloLGS Nerd Font Propo", monospace;
     font-size: 13px;
     border: none;
     border-radius: 0;
@@ -13,8 +13,20 @@ window#waybar {
     color: #{{fg}};
 }
 
+/* Spacing: every item has 10px either side and each end of the bar adds
+   10px more, so the gap between two items and the gap to the screen edge are
+   both 20px. */
+.modules-left {
+    margin-left: 10px;
+}
+
+.modules-right {
+    margin-right: 10px;
+}
+
 #workspaces button {
-    padding: 0 8px;
+    padding: 0 10px;
+    min-width: 0;
     color: #{{fg_dim}};
     background: transparent;
 }
@@ -28,15 +40,45 @@ window#waybar {
 }
 
 #clock,
+#privacy,
+#idle_inhibitor,
+#bluetooth,
 #network,
+#backlight,
 #pulseaudio,
 #battery {
-    padding: 0 12px;
+    padding: 0 10px;
 }
 
-#network.disconnected,
+#idle_inhibitor {
+    color: #{{muted}};
+}
+
+#idle_inhibitor.activated {
+    color: #{{accent}};
+}
+
+#bluetooth {
+    color: #{{blue}};
+}
+
+/* Someone can see the screen: as loud as offline. */
+#privacy-item.screenshare {
+    color: #{{bg}};
+    background: #{{red}};
+    padding: 0 10px;
+}
+
 #pulseaudio.muted {
     color: #{{fg_dim}};
+}
+
+/* Offline has to be impossible to miss. */
+#network.disconnected,
+#network.disabled {
+    color: #{{bg}};
+    background: #{{red}};
+    font-weight: bold;
 }
 
 #battery.warning {

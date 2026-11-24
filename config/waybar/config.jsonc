@@ -1,4 +1,5 @@
 // Bar layout. Colours and styling live in templates/waybar.css.
+// The icons are Nerd Font glyphs and may look blank in an editor without one.
 {
   "layer": "top",
   "position": "top",
@@ -6,29 +7,57 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "pulseaudio", "battery"],
+  "modules-right": ["privacy", "idle_inhibitor", "bluetooth", "network", "backlight", "pulseaudio", "battery"],
 
   "clock": {
-    "format": "{:%a %d %b  %H:%M}",
+    "format": "{:%a %d %b  %I:%M %p}",
     "tooltip": false
   },
 
+  // Appears only while something is sharing or recording the screen.
+  "privacy": {
+    "icon-size": 14,
+    "modules": [{ "type": "screenshare", "tooltip": false }]
+  },
+
+  // Click to keep the screen from dimming and locking (videos, presentations).
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": { "activated": "", "deactivated": "" },
+    "tooltip": false
+  },
+
+  // Shown only while a device is connected.
+  "bluetooth": {
+    "format": "",
+    "format-connected": "",
+    "tooltip": false
+  },
+
+  // Shown only when there is a problem; a working connection takes no space.
   "network": {
-    "format-wifi": "{essid}",
-    "format-ethernet": "wired",
-    "format-disconnected": "offline",
+    "format": "",
+    "format-disconnected": "󰖪",
+    "format-disabled": "󰖪",
+    "tooltip": false
+  },
+
+  "backlight": {
+    "format": " {percent}%",
     "tooltip": false
   },
 
   "pulseaudio": {
-    "format": "vol {volume}%",
-    "format-muted": "muted",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-icons": { "default": ["", "", ""] },
     "tooltip": false
   },
 
   "battery": {
-    "format": "bat {capacity}%",
-    "format-charging": "chg {capacity}%",
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
     "states": { "warning": 25, "critical": 10 },
     "tooltip": false
   }

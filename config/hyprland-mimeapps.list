@@ -14,3 +14,4 @@ image/bmp=imv-dir.desktop
 image/x-bmp=imv-dir.desktop
 image/tiff=imv-dir.desktop
 image/qoi=imv-dir.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop

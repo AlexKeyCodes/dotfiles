@@ -14,6 +14,7 @@ waybar
 fuzzel
 mako
 swaybg
+hyprsunset
 
 # Audio, brightness, media keys, Bluetooth
 pipewire
@@ -34,6 +35,7 @@ jq
 pulsemixer
 bluetui
 impala
+udiskie
 
 # Terminal and shell
 ghostty
@@ -54,6 +56,12 @@ yazi
 7zip
 poppler
 imagemagick
+perl-image-exiftool
+mediainfo
+
+# System upkeep
+ufw
+pacman-contrib
 
 # Editor
 neovim
@@ -78,3 +86,5 @@ imv
 mpv
 obs-studio
 transmission-gtk
+zathura
+zathura-pdf-mupdf

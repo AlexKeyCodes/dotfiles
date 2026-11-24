@@ -1,0 +1,29 @@
+# Rendered by theme-set from templates/zathurarc. Edit the template, not the output.
+set selection-clipboard clipboard
+set adjust-open width
+set font "MesloLGS Nerd Font 11"
+
+set default-bg "#{{bg}}"
+set default-fg "#{{fg}}"
+set statusbar-bg "#{{surface}}"
+set statusbar-fg "#{{fg}}"
+set inputbar-bg "#{{bg}}"
+set inputbar-fg "#{{fg}}"
+set completion-bg "#{{surface}}"
+set completion-fg "#{{fg}}"
+set completion-highlight-bg "#{{accent}}"
+set completion-highlight-fg "#{{bg}}"
+set notification-bg "#{{bg}}"
+set notification-fg "#{{fg}}"
+set notification-error-bg "#{{bg}}"
+set notification-error-fg "#{{red}}"
+set notification-warning-bg "#{{bg}}"
+set notification-warning-fg "#{{yellow}}"
+set index-bg "#{{bg}}"
+set index-fg "#{{fg}}"
+set index-active-bg "#{{overlay}}"
+set index-active-fg "#{{fg}}"
+
+# Ctrl+r recolours the pages themselves to match. Off by default.
+set recolor-lightcolor "#{{bg}}"
+set recolor-darkcolor "#{{fg}}"

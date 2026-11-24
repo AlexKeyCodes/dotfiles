@@ -80,4 +80,9 @@ Everything a menu bar would do is behind `SUPER + Escape`.
 | Open another terminal | `SUPER + Return`. It starts in the focused terminal's directory |
 | Close a window | `SUPER + Q` |
 | View an image | `Enter` on it in yazi (`SUPER + E`). In the viewer, left and right flip through the folder, up and down zoom, `F` goes fullscreen, `Q` quits |
+| Read a PDF | `Enter` on it in yazi. In zathura, `J` / `K` scroll, `/` searches, `Tab` shows the contents, `Ctrl + R` matches the pages to the theme, `Q` quits |
+| Use a USB drive | Plug it in; it appears under `/run/media/`. Run `udiskie-umount -a` before unplugging |
+| Change when the night light comes on | Edit `~/.config/hypr/hyprsunset.conf`, then log out and back in |
+| Turn the night light off for now | `hyprctl hyprsunset identity` |
+| Let something through the firewall | `sudo ufw allow <port>`. `sudo ufw status` lists what is allowed |
 | Find a key I forgot | `SUPER + /` |

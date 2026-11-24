@@ -34,7 +34,7 @@ want: `./install.sh packages link`.
 | `theme` | Renders the current theme (Catppuccin on the first run) |
 | `cleanup` | Offers to remove the archinstall defaults this setup replaces (kitty, dolphin, wofi, dunst, polkit-kde-agent). Skips kitty while you are running the script inside it |
 | `shell` | Makes zsh the login shell |
-| `services` | Enables Bluetooth |
+| `services` | Enables Bluetooth, the firewall and the weekly package cache cleanup |
 | `login` | Replaces the graphical login screen with auto-login and hyprlock (see [Login](#login)) |
 | `git` | Asks for your Git name and email, creates an SSH key if there is none, and switches this repo's remote to SSH |
 | `dev` | Installs Ruby and Node through mise, then Claude Code. Ruby compiles from source, so this takes several minutes |
@@ -55,11 +55,14 @@ want: `./install.sh packages link`.
 | Launcher and menus | fuzzel |
 | Notifications | mako |
 | Lock and idle | hyprlock, hypridle |
+| Night light | hyprsunset |
+| USB drives | udiskie |
+| Firewall | ufw |
 | Terminal | ghostty |
 | Shell and prompt | zsh, starship |
 | Editor | Neovim (LazyVim) |
 | Files | yazi |
-| Images | imv |
+| Images, PDFs | imv, zathura |
 | Screenshots | grim, slurp |
 | Clipboard history | cliphist |
 | Wi-Fi, Bluetooth, audio | nmtui or impala, bluetui, pulsemixer |
@@ -103,6 +106,7 @@ and tells the running apps to reload.
 | starship | `starship.toml` | Next prompt |
 | fuzzel | `fuzzel.ini` | Next time it opens |
 | hyprlock | `hyprlock.conf` | Next lock |
+| zathura | `zathurarc` | Next time it opens |
 | Neovim | `nvim` | Every running instance switches straight away |
 
 Programs that run in the terminal (btop, yazi, fzf, zsh suggestions) use the
@@ -111,7 +115,7 @@ Firefox follow the theme's light or dark `mode`.
 
 ### Editing how something looks
 
-For waybar, mako, fuzzel, hyprlock, starship and the ghostty colours, the whole
+For waybar, mako, fuzzel, hyprlock, starship, zathura and the ghostty colours, the whole
 config is a template. Edit the file in `templates/`, never the rendered copy,
 then run `theme-set --reload`.
 

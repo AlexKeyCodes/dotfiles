@@ -95,6 +95,12 @@ phase_shell() {
 phase_services() {
   say "Enabling services"
   sudo systemctl enable --now bluetooth.service
+  sudo systemctl enable --now paccache.timer  # weekly package cache cleanup
+
+  # Firewall: ufw's defaults block incoming connections and allow outgoing.
+  # It cannot load its modules if the kernel was upgraded since the last boot.
+  sudo systemctl enable ufw.service
+  sudo ufw enable || note "ufw did not start: reboot, then run ./install.sh services"
 }
 
 # --- login: auto-login on tty1; hyprlock is then the password prompt -------

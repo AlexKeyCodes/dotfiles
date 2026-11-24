@@ -69,6 +69,7 @@ link mako          mako/config
 link fuzzel.ini    fuzzel/fuzzel.ini
 link hyprlock.conf hypr/hyprlock.conf
 link starship.toml starship.toml
+link zathurarc     zathura/zathurarc
 
 # Reload whatever is running. Nothing here is fatal: outside a Hyprland
 # session (first install from a TTY, say) there is simply nothing to reload.

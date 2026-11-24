@@ -61,6 +61,7 @@ want: `./install.sh packages link`.
 | Terminal | ghostty |
 | Shell and prompt | zsh, starship |
 | Editor | Neovim (LazyVim) |
+| Git | lazygit |
 | Files | yazi |
 | Images, PDFs | imv, zathura |
 | Screenshots | grim, slurp |
